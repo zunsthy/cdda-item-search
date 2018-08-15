@@ -24,6 +24,7 @@ const rNoResult = () => {
 
 const rRecipeList = (title, recipeList) => {
   const list = document.createElement('ul');
+  list.classList.add('recipe-list');
 
   const h3 = document.createElement('h3');
   h3.appendChild(document.createTextNode(title));
@@ -91,6 +92,7 @@ searchForm.addEventListener('submit', (ev) => {
   cleanNode(searchContent);
 
   const list = document.createElement('ul');
+  list.classList.add('item-list');
 
   items.array.filter((item) => {
     const id = item.id;

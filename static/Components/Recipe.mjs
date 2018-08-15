@@ -51,14 +51,15 @@ const rTools = (tools) => `
 </ul>
 `;
 const rComponents = (components) => `
-<ul clas="components">
+<ul class="components">
   ${components.map(list => `<li>${rComponentList(list)}</li>`).join('')}
 </ul>
 `;
 
 export default (recipe) => {
   const title = document.createElement('h4');
-  title.appendChild(document.createTextNode(recipe.result));
+  const titleText = rItem(recipe.result, 'name');
+  title.innerHTML = titleText;
 
   const row = (name, key, r) => {
     const value = recipe[key];
@@ -70,6 +71,7 @@ export default (recipe) => {
 
   const content = document.createElement('dl');
   content.innerHTML = [
+    row('ID', 'result'),
     row('Category', 'category', cate => cate.split('_')),
     row('SubCategory', 'subcategory', cate => cate.split('_')),
     row('Time', 'time'),
@@ -85,6 +87,7 @@ export default (recipe) => {
   ].filter(Boolean).join('');
 
   const container = document.createElement('section');
+  container.classList.add('recipe-block');
   container.appendChild(title);
   container.appendChild(content);
 

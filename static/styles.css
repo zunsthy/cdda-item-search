@@ -1,0 +1,100 @@
+html, body, ul, li, dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* global */
+h1, h2, h3 {
+  margin: 10px 0;
+}
+h1 + h2, h2 + h3 {
+  margin-top: 0;
+}
+h4, h5, h6 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+dt {
+  width: 100px;
+}
+dd {
+  width: calc(100% - 100px);
+}
+
+/* color */
+body {
+  color: #f8f8f8;
+  background-color: #333;
+}
+input, button, textarea {
+  border: 0 none;
+  outline: none;
+  color: #f8f8f8;
+  background-color: #777;
+  box-shadow: none;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+/* input */
+input {
+  padding: 3px 5px;
+}
+
+/* component */
+ul.requirement {
+  display: inline;
+}
+ul.requirement > li {
+  display: inline;
+}
+
+ul.components {
+  list-style: circle inside;
+}
+
+/* section */
+body > section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+form.filter {
+  padding: 10px;
+  border: 2px dashed #aaa;
+}
+
+/* recipe, item */
+ul.item-list,
+ul.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+ul.item-list > h3,
+ul.recipe-list > h3 {
+  width: 100%;
+}
+ul.item-list > li,
+ul.recipe-list > li {
+  width: 33%;
+  max-width: 400px;
+}
+.item-block,
+.recipe-block {
+  padding: 10px;
+}
+.item-block > h4,
+.recipe-block > h4 {
+  margin-bottom: 10px;
+}

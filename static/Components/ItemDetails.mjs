@@ -27,6 +27,7 @@ export default (item) => {
   ].filter(Boolean).join('');
 
   const container = document.createElement('div');
+  container.classList.add('item-block');
   container.appendChild(content);
 
   return container;

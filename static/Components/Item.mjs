@@ -4,7 +4,7 @@ import { lang, items, requirements } from '../store.mjs';
 export default (id, type) => {
   if (items.has(id)) {
     const item = items.get(id);
-    const msg = lang.get(item.name);
+    const msg = lang.has(item.name) ? lang.get(item.name) : lang.get(item.name);
 
     return `
 <a
@@ -16,7 +16,7 @@ export default (id, type) => {
 >${msg || item.name}</a>
     `;
   } else if (requirements.has(id)) {
-    if (type === 'tool') console.log(rRequirement(id));
+    // if (type === 'tool') console.log(rRequirement(id));
     return rRequirement(id);
   } else {
     return `
