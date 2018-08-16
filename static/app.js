@@ -43,10 +43,8 @@ const rRecipeList = (title, recipeList) => {
   return list;
 };
 
-recipeForm.addEventListener('submit', (ev) => {
-  ev.preventDefault();
-
-  const name = recipeForm.elements['item-name'].value;
+const recipeSearch = () => {
+  const name = recipeForm.elements.namedItem('item-id').value.trim();
 
   cleanNode(recipeContent);
 
@@ -77,6 +75,20 @@ recipeForm.addEventListener('submit', (ev) => {
 
     recipeContent.appendChild(section);
   });
+};
+
+recipeForm.addEventListener('submit', (ev) => {
+  if (ev) ev.preventDefault();
+  recipeSearch();
+});
+
+recipeContent.addEventListener('click', (ev) => {
+  if (ev.target.classList.contains('search-link')) {
+    const dataset = ev.target.dataset;
+    const id = dataset.id;
+    recipeForm.elements.namedItem('item-id').value = id;
+    recipeSearch();
+  }
 });
 
 const searchContainer = document.getElementById('search');
@@ -86,7 +98,7 @@ const searchForm = searchContainer.querySelector('form[name="filter"]');
 searchForm.addEventListener('submit', (ev) => {
   ev.preventDefault();
 
-  const search = searchForm.elements['item-name'].value;
+  const search = searchForm.elements.namedItem('item-name').value.trim();
   if (!search) return;
 
   cleanNode(searchContent);
